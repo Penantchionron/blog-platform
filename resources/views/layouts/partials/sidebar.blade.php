@@ -33,117 +33,93 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>Dashboard v1</p>
+                <a href="{{ route('modules.accueil') }}" class="nav-link active">
+                 <b> <i class="bi bi-graph-up-arrow"></i></b>
+                  <p>Données Statistiques</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ asset('adminlte/pages/index2.html')}}"class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>Dashboard v2</p>
+                <a href="{{ route('premiums') }}"class="nav-link">
+                 <b><i class="bi bi-gem " style="color:darkgoldenrod"></i></b> 
+                  <p>Premiums</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-    
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon bi bi-box-seam-fill"></i>
-              <p>
-                Widgets
-                <i class="nav-arrow bi bi-chevron-right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ asset('adminlte/pages/widgets/small-box.html')}}" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>Small Box</p>
+                <a href="{{ route('users') }}" class="nav-link">
+                  <b><i class="bi bi-people-fill" style="color:rgb(238, 242, 242)"></i></b>
+                  <p>Utilisateurs</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./widgets/info-box.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>info Box</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./widgets/cards.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>Cards</p>
+                <a href="{{ route('transactions') }}" class="nav-link">
+                  <b><i class="bi bi-cart-fill"  style="color:rgb(238, 242, 242)"></i></b>
+                  <p>Transactions</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon bi bi-clipboard-fill"></i>
+            <a href="#" class="nav-link active">
+              <i class="nav-icon bi bi-folder-fill"  style="color:rgb(238, 242, 242)"></i>
               <p>
                 Contenus
                 <span class="nav-badge badge text-bg-secondary me-3">6</span>
-                <i class="nav-arrow bi bi-chevron-right"></i>
+                <b><i class="nav-arrow bi bi-chevron-right"  style="color:rgb(238, 242, 242)"></i></b>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./layout/unfixed-sidebar.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
+                <a href="{{ route('videos') }}" class="nav-link">
+                  <b> <i class="nav-icon bi bi-camera-reels-fill"  style="color:rgb(238, 242, 242)"></i></b>
                   <p>Videos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./layout/fixed-sidebar.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
+                <a href="{{ route('pdf') }}" class="nav-link">
+                  <b> <i class="nav-icon bi bi-filetype-pdf" style="color:rgb(238, 242, 242)"></i></b>
                   <p>PDF</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./layout/layout-custom-area.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
+                <a href="{{ route('paiements') }}" class="nav-link">
+                  <b><i class="nav-icon bi bi-credit-card-fill"  style="color:rgb(238, 242, 242)"></i></b>
                   <p>Paiements</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./layout/sidebar-mini.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
+                <a href="{{ route('downloads') }}" class="nav-link">
+                  <b><i class="nav-icon bi bi-download" style="color:rgb(238, 242, 242)"></i></b>
                   <p>Télechargements</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon bi bi-ui-checks-grid"></i>
+            <a href="#" class="nav-link active">
+             <b> <i class="nav-icon bi bi-ui-checks-grid"  style="color:rgb(238, 242, 242)"></i></b>
               <p>
                 Articles
-                <i class="nav-arrow bi bi-chevron-right"></i>
+                <i class="nav-arrow bi bi-chevron-right"  style="color:rgb(238, 242, 242)"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./docs/components/main-header.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
+                <a href="{{ route('articles') }}" class="nav-link">
+                  <i class="nav-icon bi bi-bar-chart-line-fill"style="color:rgb(238, 242, 242)"></i>
                   <p>Articles Trading</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./docs/components/main-sidebar.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
+                <a href="{{ route('devs') }}" class="nav-link">
+                  <i class="nav-icon bi bi-code-slash" style="color:rgb(238, 242, 242)"></i>
                   <p>Articles Programmation</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="./docs/faq.html" class="nav-link">
-              <i class="nav-icon bi bi-question-circle-fill"></i>
+            <a href="{{ route('faq.accueil') }}" class="nav-link">
+              <i class="nav-icon bi bi-question-circle-fill"  style="color:rgb(238, 242, 242)"></i>
               <p>FAQ</p>
             </a>
           </li>

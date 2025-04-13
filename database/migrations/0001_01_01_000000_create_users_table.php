@@ -13,12 +13,39 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+    
+            // Infos d'identité
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
+            $table->string('username')->unique()->nullable();
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('country')->nullable();
+    
+            // Auth
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+    
+            // Avatar ou photo de profil
+            $table->string('avatar')->nullable();
+    
+            // Rôle par défaut avec Spatie
+            $table->string('role')->default('user'); // non utilisé directement si Spatie est géré via modèle
+    
+            // Paiements / statut premium
+            $table->boolean('is_premium')->default(false);
+            $table->timestamp('premium_expires_at')->nullable();
+    
+            // Social login (optionnel à activer plus tard)
+            $table->string('provider')->nullable(); // ex: google, facebook
+            $table->string('provider_id')->nullable();
+    
+            // Statuts / tracking
+            $table->boolean('is_active')->default(true);
             $table->rememberToken();
             $table->timestamps();
+            //index recherche optimisation
+            $table->index(['email', 'phone']);
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

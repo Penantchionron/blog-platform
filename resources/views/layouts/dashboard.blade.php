@@ -2,66 +2,119 @@
 <html lang="en">
   <!--begin::Head-->
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Dashboard</title>
-    <!--begin::Primary Meta Tags-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="ADashboard" />
-    <meta name="author" content="9Un Global Services LLC " />
-    <meta
-      name="description"
-      content="9Un Global Services LLC est une entreprise de logicielle et une plateforme."
-    />
-    <meta
-      name="keywords"
-      content=" Trading, Developpement web, Developpement Mobile,Analyse"
-    />
-    <!--end::Primary Meta Tags-->
-    <!--begin::Fonts-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
-      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
-      crossorigin="anonymous"/>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
-      integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg="
-      crossorigin="anonymous"/>
-    <!--end::Third Party Plugin(OverlayScrollbars)-->
-    <!--begin::Third Party Plugin(Bootstrap Icons)-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-      integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI="
-      crossorigin="anonymous"
-    />
-    <!--end::Third Party Plugin(Bootstrap Icons)-->
-    <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../../dist/css/adminlte.css" />
-    <!--end::Required Plugin(AdminLTE)-->
-    <!-- apexcharts -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
-      integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.css') }}">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Dashboard</title>
+      <!--begin::Primary Meta Tags-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="title" content="ADashboard" />
+      <meta name="author" content="9Un Global Services LLC " />
+      <meta
+        name="description"
+        content="9Un Global Services LLC est une entreprise de logicielle et une plateforme."
+      />
+      <meta
+        name="keywords"
+        content=" Trading, Developpement web, Developpement Mobile,Analyse"
+      />
+      <!--end::Primary Meta Tags-->
+      <!--begin::Fonts-->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+        integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+        crossorigin="anonymous"/>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+        integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg="
+        crossorigin="anonymous"/>
+      <!--end::Third Party Plugin(OverlayScrollbars)-->
+      <!--begin::Third Party Plugin(Bootstrap Icons)-->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI="
+        crossorigin="anonymous"
+      />
+      <!--end::Third Party Plugin(Bootstrap Icons)-->
+      <!--begin::Required Plugin(AdminLTE)-->
+      <link rel="stylesheet" href="../../dist/css/adminlte.css" />
+      <!--end::Required Plugin(AdminLTE)-->
+      <!-- apexcharts -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+        integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
+        crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.css') }}">
 
-    <!-- Font Awesome (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- Font Awesome (CDN) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Bootstrap 5 CSS (CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
-      integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
-      crossorigin="anonymous"
-    />
-    @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/theme.js'])
-    @stack('styles')
+      <!-- Bootstrap 5 CSS (CDN) -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+        integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+        crossorigin="anonymous" />
+        <style>      
+                          html, body {
+                              height: 100%;
+                              margin: 0;
+                              padding: 0;
+                              overflow: hidden; /* empêche le scroll général */
+                          }
+
+                          /* Fixe la navbar */
+                          .main-header {
+                              position: fixed;
+                              top: 0;
+                              left: 0;
+                              right: 0;
+                              height: 57px;
+                              z-index: 1030;
+                          }
+
+                          /* Fixe la sidebar */
+                          .main-sidebar {
+                              position: fixed;
+                              top: 57px;
+                              bottom: 40px;
+                              left: 0;
+                              width: 250px; /* largeur par défaut AdminLTE */
+                              overflow-y: auto;
+                          }
+
+                          /* Fixe le footer */
+                          .main-footer {
+                              position: fixed;
+                              bottom: 0;
+                              left: 0;
+                              right: 0;
+                              height: 40px;
+                              z-index: 1020;
+                              background: #f4f6f9;
+                              border-top: 1px solid #dee2e6;
+                            
+                          }
+
+                          /* Le wrapper central prend tout l’espace entre header/footer */
+                          .content-wrapper {
+                              position: absolute;
+                              top: 57px; /* sous la navbar */
+                              left: 250px; /* après la sidebar */
+                              right: 0;
+                              bottom: 40px; /* au-dessus du footer */
+                              overflow-y: auto;
+                              padding: 1rem;
+                              background-color: #fff;
+                          }
+
+        </style>
+      @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/theme.js'])
+      @stack('styles')
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <!--begin::App Wrapper-->
