@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('type', ['video', 'pdf', 'audio', 'article']); // pour filtrer facilement
+            $table->enum('type', ['videos', 'pdf', 'audios', 'articles']); // pour filtrer facilement
             $table->string('slug')->unique();
 
             // Stockage du fichier (MediaLibrary va gérer les fichiers associés)

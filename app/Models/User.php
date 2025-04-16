@@ -1,38 +1,50 @@
 <?php
 
-namespace App\Models;
+ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Models\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use HasRoles;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
+    protected $guarded = [];
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
+
     ];
-                public function contents()
+
+                public function hasRole($role)
+                {
+                    return $this->role === $role;
+                }
+                public function contents():HasMany
             {
                 return $this->hasMany(Content::class);
             }
 
-            public function purchases()
+            public function purchases():HasMany
             {
                 return $this->hasMany(Purchase::class);
             }
 
-            public function ratings()
+            public function ratings():HasMany
             {
                 return $this->hasMany(Rating::class);
             }

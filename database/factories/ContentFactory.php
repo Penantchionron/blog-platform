@@ -20,7 +20,7 @@ class ContentFactory extends Factory
             'title' => $this->faker->sentence,
             'slug' => $this->faker->slug,
             'description' => $this->faker->paragraph,
-            'type' => $this->faker->randomElement(['video', 'audio', 'pdf','article']),
+            'type' => $this->faker->randomElement(['videos', 'audios', 'pdf','articles']),
             'path' => $this->faker->url,
             'price' => $this->faker->randomFloat(2, 0, 100),
             'is_free' => $this->faker->boolean(30),

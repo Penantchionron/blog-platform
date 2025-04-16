@@ -69,13 +69,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('videos') }}" class="nav-link">
+                <a href="{{ route('videos.index') }}" class="nav-link">
                   <b> <i class="nav-icon bi bi-camera-reels-fill"  style="color:rgb(238, 242, 242)"></i></b>
                   <p>Videos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('pdf') }}" class="nav-link">
+                <a href="{{ route('audios.index') }}" class="nav-link">
+                  <b> <i class="fas fa-headphones"  style="color:rgb(238, 242, 242)"></i></b>
+                  <p>Audios</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('pdf.index') }}" class="nav-link">
                   <b> <i class="nav-icon bi bi-filetype-pdf" style="color:rgb(238, 242, 242)"></i></b>
                   <p>PDF</p>
                 </a>
@@ -104,7 +110,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('articles') }}" class="nav-link">
+                <a href="{{ route('articles.index') }}" class="nav-link">
                   <i class="nav-icon bi bi-bar-chart-line-fill"style="color:rgb(238, 242, 242)"></i>
                   <p>Articles Trading</p>
                 </a>

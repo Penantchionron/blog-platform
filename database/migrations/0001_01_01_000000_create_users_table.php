@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
     
             // Infos d'identité
-            $table->string('first_name');
+            $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('username')->unique()->nullable();
             $table->string('email')->unique();
@@ -28,7 +28,8 @@ return new class extends Migration
     
             // Avatar ou photo de profil
             $table->string('avatar')->nullable();
-    
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
             // Rôle par défaut avec Spatie
             $table->string('role')->default('user'); // non utilisé directement si Spatie est géré via modèle
     

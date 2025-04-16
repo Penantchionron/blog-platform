@@ -3,19 +3,21 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Purchase extends Model
 {
     use HasFactory;
 
     protected $fillable = ['user_id', 'content_id'];
 
-    public function user()
+    protected $guarded = [];
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function content()
+    public function content(): BelongsTo
     {
         return $this->belongsTo(Content::class);
     }

@@ -6,7 +6,7 @@
       <title>Dashboard</title>
       <!--begin::Primary Meta Tags-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="title" content="ADashboard" />
+      <meta name="title" content="Dashboard" />
       <meta name="author" content="9Un Global Services LLC " />
       <meta
         name="description"
@@ -36,6 +36,11 @@
         integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI="
         crossorigin="anonymous"
       />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Font Awesome (Google Icon) -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      
       <!--end::Third Party Plugin(Bootstrap Icons)-->
       <!--begin::Required Plugin(AdminLTE)-->
       <link rel="stylesheet" href="../../dist/css/adminlte.css" />
@@ -115,6 +120,7 @@
         </style>
       @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/theme.js'])
       @stack('styles')
+      @livewireStyles
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <!--begin::App Wrapper-->
@@ -430,8 +436,15 @@
         applyTheme(newTheme);
       });
     </script>
+            <script src="https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js?v=3"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js?v=3"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js?v=3"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js?v=3"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
      @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/theme.js'])
      @stack('scripts')
+     @livewireScripts
     <!--end::Script-->
   </body>
   <!--end::Body-->

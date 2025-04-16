@@ -1,0 +1,93 @@
+/*LOGO*/
+.logo img {
+    max-height: 50px; /* réduit le logo */
+    width: auto;
+    object-fit: contain;
+    border-radius: 10px; /* coins légèrement arrondis */
+    box-shadow: 0 0 10px rgba(0,0,0,0.3); /* contour flou */
+    background-color: white; /* fond pour qu’il soit lisible */
+    padding: 3px;
+}
+
+/* Top bar fixe */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    z-index: 1030;
+    padding: 5px 0;
+}
+
+/* Navbar fixe en dessous de la top-bar */
+.main-navbar {
+    position: fixed;
+    top: 42px; /* ajusté selon hauteur top-bar */
+    width: 100%;
+    background-color: white;
+    z-index: 1020;
+    border-bottom: 1px solid #eee;
+}
+
+/* Centrage des liens */
+.nav-links ul {
+    justify-content: center;
+    width: 100%;
+}
+
+/* main démarre sous la top-bar + navbar */
+main {
+    margin-top: 120px;
+    padding-bottom: 80px;
+    z-index: 1;
+    position: relative;
+}
+
+/* Footer fixé en bas */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    z-index: 1000;
+}
+
+.footer-copyright {
+    padding: 10px 0;
+    color: white;
+    font-size: 14px;
+}
+  /* ----------------------------- */
+  /* Responsive Mobile */
+  /* ----------------------------- */
+  
+ .burger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+  }
+  @media (max-width: 991px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      padding: 10px;
+      z-index: 999;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .burger {
+      display: block;
+      font-size: 28px;
+      cursor: pointer;
+    }
+  }
