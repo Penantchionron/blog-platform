@@ -5,7 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-
+use Illuminate\Auth\Access\AuthorizationException;
 class Handler extends ExceptionHandler
 {
     /**
@@ -31,6 +31,14 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function render($request, Throwable $exception)
+{
+    if ($exception instanceof AuthorizationException) {
+        return redirect()->route('accueil')->with('error', 'Accès refusé.');
+    }
+
+    return parent::render($request, $exception);
+}
 
     /**
      * Gère les redirections des utilisateurs non authentifiés.

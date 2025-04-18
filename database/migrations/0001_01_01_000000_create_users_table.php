@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
     
             // Infos d'identité
-            $table->string('first_name')->nullable();
+            $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('username')->unique()->nullable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
-            $table->string('country')->nullable();
+            $table->string('country');
     
             // Auth
             $table->timestamp('email_verified_at')->nullable();
@@ -38,15 +38,13 @@ return new class extends Migration
             $table->timestamp('premium_expires_at')->nullable();
     
             // Social login (optionnel à activer plus tard)
-            $table->string('provider')->nullable(); // ex: google, facebook
-            $table->string('provider_id')->nullable();
-    
+         
             // Statuts / tracking
             $table->boolean('is_active')->default(true);
             $table->rememberToken();
             $table->timestamps();
             //index recherche optimisation
-            $table->index(['email', 'phone']);
+            $table->index(['email', 'phone','country']);
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

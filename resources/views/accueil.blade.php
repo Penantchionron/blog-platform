@@ -19,7 +19,6 @@
        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
        <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}" />
        <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
-       @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
 <header class="main-header">
@@ -44,45 +43,55 @@
 
                             @else
                             @auth
-    <li class="nav-item dropdown">
-        <button type="button" class="btn btn-primary btn-sm nav-link dropdown-toggle d-flex align-items-center bg-transparent border-0"
-              id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white ;font-weight:bold ; font-family:montserat;">
-          
-          <span class="d-none d-md-inline me-2">{{ Auth::user()->first_name }}</span>
+                            <li class="nav-item dropdown">
+                                <button type="button" class="btn btn-primary btn-sm nav-link dropdown-toggle d-flex align-items-center bg-transparent border-0"
+                                    id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white ;font-weight:bold ; font-family:montserat;">
+                                
+                                <span class="d-none d-md-inline me-2">{{ Auth::user()->first_name }}</span>
 
-          @if(Auth::user()->avatar)
-              <img src="{{ asset(Auth::user()->avatar) }}" alt="Avatar"
-                  class="rounded-circle me-2" width="40" height="40" style="object-fit: cover;">
-          @else
-              <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
-                  style="width: 30px; height: 30px;">
-                  <i class="bi bi-person-circle fs-4 text-secondary"></i>
-              </div>
-          @endif
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end btn btn-primary btn-sm" aria-labelledby="userDropdown">
-            <li  style="color:white ;font-weight:bold ; font-family:montserat;">
-                <a class="dropdown-item" href="{{ route('modules.accueil') }}">
-                   <b style="color:white; font-size: 1.2em;"> <i class="bi bi-speedometer2 me-2"></i> Dashboard</b>
-                </a>
-            </li>
-            <li style="color:white ;font-weight:bold ; font-family:montserat;">
-                 <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
-                <b style="color:white; font-size: 1.2em;" > <i class="bi bi-person-gear me-2"></i> Profil</b>
-                </a>
-            </li>
-            <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button class="dropdown-item text-danger" style="color:white ;font-weight:bold ; font-family:montserat;">
-                    <b style="color:red;font-size: 1.2em;"><i class="bi bi-box-arrow-right me-2"></i> Déconnexion</b>
-                    </button>
-                </form>
-            </li>
-        </ul>
-    </li>
-      @endauth
-
+                                @if(Auth::user()->avatar)
+                                    <img src="{{ asset(Auth::user()->avatar) }}" alt="Avatar"
+                                        class="rounded-circle me-2" width="40" height="40" style="object-fit: cover;">
+                                @else
+                                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
+                                        style="width: 30px; height: 30px;">
+                                        <i class="bi bi-person-circle fs-4 text-secondary"></i>
+                                    </div>
+                                @endif
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end btn btn-primary btn-sm" aria-labelledby="userDropdown">
+                                    <li  style="color:white ;font-weight:bold ; font-family:montserat;">
+                                        @php
+                                        $dashboardRoute = Auth::user()->role === 'admin' ? route('admin.dashboard') : route('users.dashboard');
+                                       @endphp
+                                       @if ($dashboardRoute)
+                                           
+                                      
+                                    <a class="dropdown-item" href="{{ $dashboardRoute }}">
+                                        <b style="color:white; font-size: 1.2em;"> <i class="bi bi-speedometer2 me-2"></i> Dashboard</b>
+                                    </a>
+                                    @else
+                                    <a class="dropdown-item" href="{{ route('users.dashboard') }}">
+                                        <b style="color:white; font-size: 1.2em;"> <i class="bi bi-speedometer2 me-2"></i> Dashboard</b>
+                                    </a>
+                                    @endif
+                                    </li>
+                                    <li style="color:white ;font-weight:bold ; font-family:montserat;">
+                                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                        <b style="color:white; font-size: 1.2em;" > <i class="bi bi-person-gear me-2"></i> Profil</b>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button class="dropdown-item text-danger" style="color:white ;font-weight:bold ; font-family:montserat;">
+                                            <b style="color:red;font-size: 1.2em;"><i class="bi bi-box-arrow-right me-2"></i> Déconnexion</b>
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endauth
                             @endguest
                         </ul>
                     </div>

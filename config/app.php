@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Blog Platform'),
 
     /*
     |--------------------------------------------------------------------------
@@ -122,6 +122,15 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+    Illuminate\Filesystem\FilesystemServiceProvider::class,
+    Illuminate\View\ViewServiceProvider::class,
+    Illuminate\Auth\AuthServiceProvider::class,
+    Illuminate\Broadcasting\BroadcastServiceProvider::class,
+   
     Spatie\Permission\PermissionServiceProvider::class,
+    App\Providers\AuthServiceProvider::class, // 👈 ajoute celui-ci ici aussi si tu l'as créé
+    App\Providers\RouteServiceProvider::class,
+    App\Providers\AppServiceProvider::class,
 
+    Spatie\Permission\PermissionServiceProvider::class,
 ];

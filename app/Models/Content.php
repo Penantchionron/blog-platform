@@ -14,7 +14,9 @@ class Content extends Model implements HasMedia
     protected $guarded = [];
     protected $fillable = [
         'title', 'slug', 'description', 'type',
-        'price', 'is_free', 'status', 'user_id'
+        'price', 'is_free', 'status', 'user_id',
+        'is_active', 'path',
+       
     ];
 
     public function user():BelongsTo

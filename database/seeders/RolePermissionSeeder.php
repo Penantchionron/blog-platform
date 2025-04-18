@@ -17,7 +17,9 @@ class RolePermissionSeeder extends Seeder
             'purchase content',
             'rate content'
         ];
-
+        Role::firstOrCreate(['name' => 'user', 'guard_name' => 'web']);
+        Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
+    
         foreach ($permissions as $permission) {
             Permission::firstOrCreate(['name' => $permission]);
         }

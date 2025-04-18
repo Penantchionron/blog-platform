@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Purchase extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['user_id', 'content_id'];
-
+    
+     // Define all attributes that can be mass assigned
+     protected $fillable = [
+        'user_id',
+        'content_id',
+        'price',
+        'payment_method',
+        'transaction_id',
+        'purchased_at',
+    ];
     protected $guarded = [];
 
     public function user(): BelongsTo

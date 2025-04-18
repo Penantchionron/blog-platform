@@ -25,10 +25,20 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
+        'username',
         'email',
+        'phone',
+        'country',
         'password',
-
-    ];
+        'avatar',
+        'provider',
+        'provider_id',
+        'role',
+        'is_premium',
+        'premium_expires_at',
+        'is_active',
+    ]; 
+   
 
                 public function hasRole($role)
                 {

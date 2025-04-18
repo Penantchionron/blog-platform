@@ -13,11 +13,11 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next,$role): Response
     {    if (!$request->user() || !$request->user()->hasRole($role)) {
         // Si l'utilisateur n'a pas le rôle, redirige-le
-        return redirect('/');
-    }
-        return $next($request);
+        return redirect()->route('home')->with('error', 'Connectez-vous !.');
+         }
+    return $next($request);
     }
 }
