@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\Content;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -16,8 +17,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('welcome');
-    }
+        $contents = Content::all(); 
+        return view('welcome', compact('contents'))->with('status',"Veillez Vous Connecter !");}
 
     /**
      * Handle an incoming authentication request.

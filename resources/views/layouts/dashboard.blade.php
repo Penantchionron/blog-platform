@@ -64,6 +64,7 @@
         href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
         integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
         crossorigin="anonymous" />
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>      
                           html, body {
                               height: 100%;
@@ -118,8 +119,7 @@
                           }
 
         </style>
-      @vite(['resources/css/app.css', 'resources/js/app.js'])
-      @stack('styles')
+     @stack('styles')
       @livewireStyles
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">

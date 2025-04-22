@@ -18,6 +18,10 @@ return [
     'client_secret' => env('GOOGLE_CLIENT_SECRET'),
     'redirect'      => env('GOOGLE_REDIRECT_URI'),
 ],
+'paypal' => [
+    'client_id'     => env('PAYPAL_SANDBOX_CLIENT_ID'),
+    'client_secret' => env('PAYPAL_SANDBOX_CLIENT_SECRET'),
+],
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

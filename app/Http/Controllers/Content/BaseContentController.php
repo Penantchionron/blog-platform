@@ -27,50 +27,53 @@ abstract class BaseContentController extends Controller
         return view("contents.{$this->type}.create");
     }
     public function store(Request $request)
-{
-    $request->validate([
-        'title'       => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'media'       => [
-            in_array($this->type, ['pdf', 'audio', 'video']) ? 'required' : 'nullable',
-            'file',
-            'max:10000',
-        ],
-        'images.*'    => $this->type === 'article' ? 'image|mimes:jpeg,png,jpg,gif,svg|max:2048' : 'nullable',
-        'price'       => 'nullable|numeric|min:0',
-        'status'      => 'required|in:draft,published',
-        'is_free'     => 'nullable|boolean',
-    ]);
-
-    $content = Content::create([
-        'title'       => $request->title,
-        'slug'        => Str::slug($request->title),
-        'description' => $request->description,
-        'type'        => $this->type,
-        'path'        => null,
-        'price'       => $request->price ?? 0,
-        'is_free'     => $request->has('is_free'),
-        'status'      => $request->status ?? 'draft',
-        'user_id'     => Auth::id(),
-    ]);
-
-    // Upload d’images pour les articles
-    if ($this->type === 'article' && $request->hasFile('images')) {
-        foreach ($request->file('images') as $image) {
-            $content->addMedia($image)->toMediaCollection('images');
-        }
-    }
-
-    // Upload de média unique pour PDF, audio ou vidéo
-    if (in_array($this->type, ['pdf', 'audio', 'video']) && $request->hasFile('media')) {
-        $content->addMedia($request->file('media'))->toMediaCollection('media');
-
-        $content->update([
-            'path' => $content->getFirstMediaUrl('media'),
+    {
+        // Define mime types based on content type
+        $mimeRules = match ($this->type) {
+            'audios' => 'mimes:mp3,wav,ogg,mpga,m4a',
+            'videos' => 'mimes:mp4,mov,avi,mkv',
+            'pdf'    => 'mimes:pdf',
+            default  => '',
+        };
+    
+        $request->validate([
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'media'       => array_filter([
+                in_array($this->type, ['pdf', 'audios', 'videos']) ? 'required' : null,
+                'file',
+                $mimeRules,
+                'max:3221225472', // 3GB
+            ]),
+            'images.*'    => $this->type === 'articles' ? 'image|mimes:jpeg,png,jpg,gif,svg|max:2048' : 'nullable',
+            'price'       => 'nullable|numeric|min:0',
+            'status'      => 'required|in:draft,published',
+            'is_free'     => 'nullable|boolean',
         ]);
+    
+        $content = Content::create([
+            'title'       => $request->title,
+            'slug'        => Str::slug($request->title) . '-' . uniqid(),
+            'description' => $request->description,
+            'type'        => $this->type,
+            'path'        => null,
+            'price'       => $request->price ?? 0,
+            'is_free'     => $request->has('is_free'),
+            'status'      => $request->status ?? 'draft',
+            'user_id'     => Auth::id(),
+        ]);
+    
+        if (in_array($this->type, ['pdf', 'audios', 'videos']) && $request->hasFile('media')) {
+            $media = $content->addMedia($request->file('media'))->toMediaCollection('media');
+    
+            $content->update([
+                'path' => $media->getUrl(), // For playback or display
+            ]);
+        }
+    
+        return redirect()->route("{$this->type}.index")->with('success', ucfirst($this->type) . ' créé avec succès.');
     }
-
-    return redirect()->route("{$this->type}.index")->with('success', ucfirst($this->type).' créé avec succès.');
-}
+    
+    
    
 }

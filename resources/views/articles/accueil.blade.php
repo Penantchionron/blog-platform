@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.vuePrincipal')
 
 @section('title', 'Accueil')
 

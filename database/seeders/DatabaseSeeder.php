@@ -42,8 +42,8 @@ class DatabaseSeeder extends Seeder
         });
 
         // Contenus, Achats, Notes
-        Content::factory(10)->create();
-        Purchase::factory(10)->create();
-        Rating::factory(10)->create();
+        Content::factory(1)->create();
+        Purchase::factory(1)->create();
+        Rating::factory(1)->create();
     }
 }

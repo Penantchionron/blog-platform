@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Blog Platform'),
+    'name' => env('APP_NAME', '9Un Global Services LLC '),
 
     /*
     |--------------------------------------------------------------------------

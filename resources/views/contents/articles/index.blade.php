@@ -9,7 +9,7 @@
     <div class="card card-primary card-outline">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h3 class="card-title mb-0">Liste des {{ ucfirst($type) }}</h3>
-            <a href="{{ route($type . '.create') }}" class="btn btn-sm btn-primary">
+            <a href="{{ route($type . '.create') }}" class="btn btn-sm btn-primary float-end">
                 <i class="fas fa-plus"></i> Ajouter un {{ $type }}
             </a>
         </div>

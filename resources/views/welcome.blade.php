@@ -1,303 +1,46 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="theme-color" content="#ffffff">
-        <title>9Un Global Services LLC</title>
-        <!-- Fonts -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-       
-        <!-- Font Awesome (Google Icon) -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link rel="stylesheet" href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" />
-       <link rel="stylesheet" href="https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css" />
-       <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
-       <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}" />
-       <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
-    </head>
-    <body>
-     <header class="main-header">
-            <div class="top-bar">
-                <div class="container">
-                    <div class="top-bar-links">
-                        <ul class="d-flex align-items-center justify-content-end">
-                            @guest
-                                                            <!-- Bouton Login -->
-                            <li>
-                              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
-                                  Login
-                              </button>
-                            </li>
+@extends('layouts.vuePrincipal')
 
-                            <!-- Bouton Register -->
-                            <li>
-                              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
-                                  Register Now
-                              </button>
-                            </li>
-                            @endguest
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        
-            <nav class="main-navbar">
-                <div class="container">
-                    <div class="nav-inner d-flex align-items-center justify-content-between">
-                        <div class="logo">
-                            <a href="{{ route('home') }}">
-                                <img src="{{ asset('assets/logo.png') }}" alt="Logo" />
-                            </a>
-                        </div>
-                        <div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
-                        <div class="nav-links">
-                            <ul class="d-flex flex-lg-row flex-column">
-                                <li><a href="{{ route('home') }}">Home</a></li>
-        
-                                <li class="has-dropdown">
-                                    <a href="#">Trading</a>
-                                    <div class="dropdown-wrapper left-dropdown">
-                                        <div class="menu-box">
-                                            <ul>
-                                                <li><a href="{{ route('pdf.index') }}"><span class="text">Formations - PDF</span></a></li>
-                                                <li><a href="{{ route('articles.index') }}"><span class="text">Articles</span></a></li>
-                                                <li><a href="{{ route('videos.index') }}"><span class="text">Videos</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li class="has-dropdown">
-                                    <a href="#">Programmation & Développement</a>
-                                    <div class="dropdown-wrapper left-dropdown">
-                                        <div class="menu-box">
-                                            <ul>
-                                                <li><a href="#"><span class="text">Programmation</span></a></li>
-                                                <li><a href="#"><span class="text">Fullstack Web</span></a></li>
-                                                <li><a href="#"><span class="text">Fullstack Mobile</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li><a href="{{ route('articles.index') }}">Articles</a></li>
-        
-                                <li class="has-dropdown d-none">
-                                    <a href="#">Hacking & CyberSécurité</a>
-                                    <div class="dropdown-wrapper left-dropdown">
-                                        <div class="menu-box">
-                                            <ul>
-                                                <li><a href="#"><span class="text">PDFs</span></a></li>
-                                                <li><a href="#"><span class="text">Videos</span></a></li>
-                                                <li><a href="{{ route('audios.index') }}"><span class="text">Audios</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li class="has-dropdown">
-                                    <a href="#">Développement Personnel</a>
-                                    <div class="dropdown-wrapper left-dropdown">
-                                        <div class="menu-box">
-                                            <ul>
-                                                <li><a href="{{ route('videos.index') }}"><span class="text">Videos</span></a></li>
-                                                <li><a href="{{ route('audios.index') }}"><span class="text">Audios</span></a></li>
-                                                <li><a href="#"><span class="text">Éducation Financière</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li class="has-dropdown">
-                                    <a href="#">Notre Entreprise</a>
-                                    <div class="dropdown-wrapper left-dropdown">
-                                        <div class="menu-box">
-                                            <ul>
-                                                <li><a href="#"><span class="text">À propos</span></a></li>
-                                                <li><a href="#"><span class="text">Contact</span></a></li>
-                                                <li><a href="{{ route('faq.accueil') }}"><span class="text">FAQs</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+@section('title', 'Accueil')
+@section('content')
+<main class="py-5">
+    <div class="container">
+        <h1 class="mb-4 text-center">🎉 Bienvenue sur notre plateforme</h1>
+
+        <div class="row">
+            @forelse ($contents as $content)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $content->title }}</h5>
+                            <span class="badge bg-secondary text-uppercase mb-2">{{ $content->type }}</span>
+                            <p class="card-text">{{ Str::limit($content->description, 100) }}</p>
+
+                            @php
+                            // Définir la route en fonction du type de contenu
+                            $routeName = match ($content->type) {
+                                'videos' => 'frontend.videos',  // Remplace 'videos.show' par 'frontend.videos'
+                                'audios' => 'frontend.audios',  // Remplace 'audios.show' par 'frontend.audios'
+                                'articles' => 'frontend.articles',  // Remplace 'articles.show' par 'frontend.articles'
+                                'pdf' => 'frontend.pdf',  // Remplace 'pdf.show' par 'frontend.pdfs'
+                                default => null,
+                            };
+                        @endphp
+                        @if ($routeName)
+                          @auth
+                            <a href="{{ route($routeName) }}" class="btn btn-primary">Voir plus</a>
+                          @else
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                              Voir plus
+                          </button>
+                           @endauth    
+                     @endif
                         </div>
                     </div>
                 </div>
-            </nav>
-        </header>
-        
-        <main>
-            <div class="container">
-                <h1>Bienvenue sur le site !</h1>
-                <p>Voici ton contenu principal...</p>
-            </div>
-        </main>
-        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border border-success">
-              <div class="modal-header">
-                <h5 class="modal-title text-success" id="registerModalLabel">Créer un compte</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-              </div>
-              <div class="modal-body">
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-                
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                            <label>Prénom</label>
-                            <input type="text" name="first_name" class="form-control" required>
-                        </div>
-                
-                        <div class="mb-3 col-md-6">
-                            <label>Nom</label>
-                            <input type="text" name="last_name" class="form-control">
-                        </div>
-                
-                        <div class="mb-3 col-md-6">
-                            <label>Pays</label>
-                            <input type="text" name="country" class="form-control" required>
-                        </div>
-                
-                        <div class="mb-3 col-md-6">
-                            <label>Email</label>
-                            <input type="email" name="email" class="form-control" required>
-                        </div>
-                
-                        <div class="mb-3 col-md-6">
-                            <label>Mot de passe</label>
-                            <input type="password" name="password" class="form-control" required>
-                        </div>
-                
-                        <div class="mb-3 col-md-6">
-                            <label>Confirmation mot de passe</label>
-                            <input type="password" name="password_confirmation" class="form-control" required>
-                        </div>
-                    </div>
-                
-                    <p class="text-muted text-center mt-4">Ou connecte-toi avec</p>
-                
-                    <div class="row mt-3">
-                        <div class="col-md-6 pe-md-1 mb-2 mb-md-0">
-                            <a href="{{ route('auth.google') }}" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center">
-                                <i class="fab fa-google me-2"></i> Google
-                            </a>
-                        </div>
-                
-                        <div class="col-md-6 ps-md-1">
-                            <button type="submit" class="btn btn-primary w-100">
-                                Créer Un Compte
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                
-              </div>
-            </div>
-          </div>
+            @empty
+                <p>Aucun contenu disponible pour le moment.</p>
+            @endforelse
         </div>
-        <!-- Login Modal -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border border-primary">
-              <div class="modal-header">
-                <h5 class="modal-title text-primary" id="loginModalLabel">Connexion</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-              </div>
-              <div class="modal-body">
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-
-                    <div class="mb-3">
-                        <label>Email</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label>Mot de passe</label>
-                        <input type="password" name="password" class="form-control" required>
-                    </div>
-
-                    <div class="d-flex justify-content-between mb-3">
-                        <label><input type="checkbox" name="remember"> Se souvenir de moi</label>
-                        <a href="{{ route('password.request') }}" class="text-primary">Mot de passe oublié ?</a>
-                    </div>
-                    <p class="text-muted text-center mt-4">Ou connecte-toi avec</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6 text-end pe-1">
-                            <a href="{{ route('auth.google') }}" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center">
-                                <i class="fab fa-google me-2"></i> Google
-                            </a>
-                        </div>
-                    
-                        <div class="col-md-6 ps-1">
-                            <button type="submit" class="btn btn-primary w-100">
-                                Connexion
-                            </button>
-                        </div>
-                    </div>
-                                      
-                    </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div> 
-        <footer>
-          <div class="footer-copyright">
-              <div class="container text-center">
-                  <p class="text-white">
-                      <strong>&copy; {{ date('Y') }} 9Un Global Services LLC </strong>
-                       <a href="#">--Tous droits réservés.</a>
-                  </p>
-              </div>
-          </div>
-      </footer>
-        {{-- Login Modal --}}
-        <!-- JS -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-
-<!-- ✅ Bootstrap JS pour l'interactivité (dropdown, modals, etc.) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <script src="https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js?v=3"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js?v=3"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js?v=3"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js?v=3"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const burger = document.querySelector('.burger');
-                const navLinks = document.querySelector('.nav-links');
-        
-                burger.addEventListener('click', function () {
-                    navLinks.classList.toggle('active');
-                });
-            });
-        </script>
-      <script>
-        $(document).ready(function() {
-            // NiceScroll par exemple
-            $("body").niceScroll();
-        });
-    </script> @if ($errors->any())
-        <script>
-            window.addEventListener("DOMContentLoaded", () => {
-                const hasFirstName = "{{ old('first_name') }}" !== "";
-                const target = hasFirstName ? "#registerModal" : "#loginModal";
-                const modal = new bootstrap.Modal(document.querySelector(target));
-                modal.show();
-            });
-        </script>
-        @endif
-    </body>
-</html>
+    </div>
+</main>
+@endsection
